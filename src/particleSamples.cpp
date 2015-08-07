@@ -34,6 +34,12 @@ particleSamples::particleSamples(ParameterReader* paraRdr_in, string path_in)
         filename << path << "/particle_list.dat";
 
     inputfile.open(filename.str().c_str());
+    if(!inputfile)
+    {
+        cout << "Cannot open file: " << filename.str() << endl;
+        cout << "Exit!"<<endl;
+        exit(-1);
+    }
     // skip the header file for OSCAR
     string temp;
     if(read_in_mode == 0)
